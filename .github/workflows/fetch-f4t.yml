@@ -1,5 +1,7 @@
 name: Fetch Food4Thought redirect.html
-on: [push]
+on:
+  schedule:
+    - cron: '*/20 * * * *'
 
 jobs:
   build:
