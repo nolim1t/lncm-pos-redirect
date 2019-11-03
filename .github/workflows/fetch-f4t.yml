@@ -9,7 +9,7 @@ jobs:
         name: Checkout master from this repo
       - name: Checkout master at HEAD
         run: git checkout master
-      - uses: nolim1t/actions/torscp@master
+      - uses: nolim1t/actions/torscp@0.1.1
         name: Copy redirect file from food4thought onion
         env:
           SRC: ${{ secrets.SRC }}
@@ -28,6 +28,6 @@ jobs:
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
       - name: Update host key for github
-        run: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+        run: mkdir -p ~/.ssh && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
       - name: Push to upstream
         run: git push originssh master
