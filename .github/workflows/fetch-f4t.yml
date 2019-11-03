@@ -16,5 +16,11 @@ jobs:
           SRC: ${{ secrets.SRC }}
           DEST: ./food4thought.html
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-      - name: Run LS command (Debugging)
-        run: ls ./
+      - name: Commit food4thought.html to this repo
+        uses: stefanzweifel/git-auto-commit-action@v2.2.0
+        with:
+          commit_message: Update food4thought with latest redirect.html
+          branch: ${{ github.head_ref }}
+          file_pattern: food4thought.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
