@@ -1,7 +1,7 @@
-name: Fetch Food4Thought redirect.html every 25 minutes
+name: Fetch Food4Thought redirect.html every 6 hours
 on:
   schedule:
-    - cron: '*/25 * * * *'
+    - cron: '0 */6 * * *'
 
 jobs:
   build:
