@@ -1,7 +1,7 @@
-name: Fetch Food4Thought redirect.html
+name: Fetch Food4Thought redirect.html every 25 minutes
 on:
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '*/25 * * * *'
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
       - name: set up SSH target
         run: git remote add originssh git@github.com:nolim1t/lncm-pos-redirect.git
       - name: Commit food4thought.html to this repo
-        run: git commit -m "Commit food4thought.html to repo"
+        run: git commit --allow-empty -m "Commit food4thought.html to repo"
       - name: Update host key for github
         run: mkdir -p ~/.ssh && echo "${PRIVATE_KEY}" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519 && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
         env:
