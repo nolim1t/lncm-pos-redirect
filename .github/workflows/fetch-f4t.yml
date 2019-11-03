@@ -27,5 +27,7 @@ jobs:
         run: git remote add originssh git@github.com:nolim1t/lncm-pos-redirect.git
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
+      - name: Update host key for github
+        run: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
       - name: Push to upstream
         run: git push originssh master
