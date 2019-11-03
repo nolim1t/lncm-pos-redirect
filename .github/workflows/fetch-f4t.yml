@@ -21,7 +21,9 @@ jobs:
         run: git config --global user.email "{GITHUB_ACTOR}@users.noreply.github.com"
       - name:  Set up git username
         run: git config --global user.name "{GITHUB_ACTOR}"
+      - name: set up SSH target
+        run: git remote add originssh git@github.com:nolim1t/lncm-pos-redirect.git
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
       - name: Push to upstream
-        run: git push origin master
+        run: git push originssh master
