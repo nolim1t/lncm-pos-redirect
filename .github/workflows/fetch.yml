@@ -1,0 +1,18 @@
+name: Fetch Food4Thought redirect.html
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout master from this repo
+      - uses: nolim1t/actions/torscp@master
+        name: Deploy site to hidden service over SCP
+        env:
+          SRC: ${{ secrets.SRC }}
+          DEST: ./food4thought.html
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
