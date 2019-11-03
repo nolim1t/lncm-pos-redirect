@@ -28,7 +28,7 @@ jobs:
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
       - name: Update host key for github
-        run: mkdir -p ~/.ssh && echo "${PRIVATE_KEY}" > ~/.ssh/id_ed25519 && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+        run: mkdir -p ~/.ssh && echo "${PRIVATE_KEY}" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519 && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       - name: Push to upstream
