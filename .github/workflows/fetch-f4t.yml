@@ -1,8 +1,7 @@
 name: Fetch Food4Thought redirect.html
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: '*/25 * * * *'
 
 jobs:
   build:
@@ -16,6 +15,8 @@ jobs:
           SRC: ${{ secrets.SRC }}
           DEST: ./food4thought.html
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      - name: Run LS on default directory
+        run: ls 
       - name: Commit food4thought.html to this repo
         uses: stefanzweifel/git-auto-commit-action@v2.2.0
         with:
