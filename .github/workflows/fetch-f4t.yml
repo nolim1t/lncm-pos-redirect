@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
         name: Checkout master from this repo
+      - name: Checkout master at HEAD
+        run: git checkout master
       - uses: nolim1t/actions/torscp@master
         name: Copy redirect file from food4thought onion
         env:
