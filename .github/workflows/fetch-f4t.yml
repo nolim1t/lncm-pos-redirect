@@ -24,4 +24,4 @@ jobs:
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
       - name: Push to upstream
-        run: git push -u origin HEAD
+        run: git push origin master
