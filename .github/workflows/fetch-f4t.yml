@@ -18,9 +18,9 @@ jobs:
       - name: Add food4thought to git staged directory
         run: git add food4thought.html
       - name: Set up git config
-        run: git config --global user.email "autobot@noreply.github.com"
+        run: git config --global user.email "{GITHUB_ACTOR}@users.noreply.github.com"
       - name:  Set up git username
-        run: git config --global user.name "Github commit bot"
+        run: git config --global user.name "{GITHUB_ACTOR}"
       - name: Commit food4thought.html to this repo
         run: git commit -m "Commit food4thought.html to repo"
       - name: Push to upstream
