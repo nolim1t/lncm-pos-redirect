@@ -22,9 +22,9 @@ jobs:
       - name: Add food4thought to git staged directory
         run: git add food4thought.html
       - name: Set up git config
-        run: git config --global user.email "{GITHUB_ACTOR}@users.noreply.github.com"
+        run: git config --global user.email "nolim1t@users.noreply.github.com"
       - name:  Set up git username
-        run: git config --global user.name "{GITHUB_ACTOR}"
+        run: git config --global user.name "nolim1t-action"
       - name: set up SSH target
         run: git remote add originssh git@github.com:nolim1t/lncm-pos-redirect.git
       - name: Commit food4thought.html to this repo
